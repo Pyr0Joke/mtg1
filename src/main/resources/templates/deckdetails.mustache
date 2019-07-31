@@ -2,13 +2,18 @@
 <body>
 <div>Просмотр колоды</div>
 {{deck}}
+<div>Состав колоды</div>
 <table>
     <tr>
-        <td>Состав колоды</td>
+        <td>Название карты</td>
+        <td>Количество карт</td>
+        <td>Мэйн</td>
     </tr>
     {{#cards}}
         <tr>
-            <td>{{cardname}}</td>
+            <td> <a href="/findCard?cardname={{cardname}}">{{cardname}}</a></td>
+            <td>{{count}}</td>
+            <td>{{main}}</td>
         </tr>
     {{/cards}}
 </table>

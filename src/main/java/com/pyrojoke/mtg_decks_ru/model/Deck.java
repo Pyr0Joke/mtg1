@@ -23,9 +23,6 @@ public class Deck {
 
     private String deckname;
 
-//    @OneToOne(optional = false, mappedBy = "decks")
-//    private DeckCards deckCards;
-
     @OneToMany( mappedBy = "decks", fetch = FetchType.LAZY)
     private Set<DeckCards> deckCards = new HashSet<>();
 

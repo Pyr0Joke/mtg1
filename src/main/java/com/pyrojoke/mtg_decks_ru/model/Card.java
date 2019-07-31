@@ -1,7 +1,6 @@
 package com.pyrojoke.mtg_decks_ru.model;
 
 import javax.persistence.*;
-import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -30,14 +29,13 @@ public class Card {
     private int voids;
     private int diamond;
 
-    private boolean land;
+    private int strength;
 
-    @OneToMany( mappedBy = "decks", fetch = FetchType.LAZY)
-    private Set<DeckCards> deckCards = new HashSet<>();
-//
-//    @ManyToMany(fetch = FetchType.LAZY)
-//    @JoinTable(name = "cards_in_deck", joinColumns = @JoinColumn(name = "card_id"), inverseJoinColumns = @JoinColumn(name = "deck_id"))
-//    private Set<Deck> decks = new HashSet<>();
+    private int health;
+
+    private int loyality;
+
+    private boolean land;
 
     private String manacost;
 
@@ -72,6 +70,30 @@ public class Card {
 
     public void setManacost(String manacost) {
         this.manacost = manacost;
+    }
+
+    public int getStrength() {
+        return strength;
+    }
+
+    public void setStrength(int strength) {
+        this.strength = strength;
+    }
+
+    public int getHealth() {
+        return health;
+    }
+
+    public void setHealth(int health) {
+        this.health = health;
+    }
+
+    public int getLoyality() {
+        return loyality;
+    }
+
+    public void setLoyality(int loyality) {
+        this.loyality = loyality;
     }
 
     public boolean isLand() {
@@ -143,14 +165,6 @@ public class Card {
     public void setDiamond(int diamond) {
         this.diamond = diamond;
         getManacost();
-    }
-
-    public Set<DeckCards> getDeckCards() {
-        return deckCards;
-    }
-
-    public void setDeckCards(Set<DeckCards> deckCards) {
-        this.deckCards = deckCards;
     }
 
     public Long getId() {

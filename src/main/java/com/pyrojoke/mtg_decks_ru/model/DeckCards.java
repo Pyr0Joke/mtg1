@@ -12,14 +12,6 @@ public class DeckCards {
     @Column(name = "count_cards_in_deck")
     private int count;
 
-//    @OneToOne(optional = false, cascade = CascadeType.ALL)
-//    @JoinColumn(name = "deck_id")
-//    private Deck decks;
-//
-//    @OneToOne(optional = false, cascade = CascadeType.ALL)
-//    @JoinColumn(name = "card_id")
-//    private Card cards;
-
     private boolean main;
 
 
@@ -27,9 +19,7 @@ public class DeckCards {
     @JoinColumn(name = "deck_id")
     private Deck decks;
 
-    @ManyToOne(optional = false, cascade = CascadeType.ALL)
-    @JoinColumn(name = "card_id")
-    private Card cards;
+    private String cardname;
 
     public boolean isMain() {
         return main;
@@ -63,11 +53,11 @@ public class DeckCards {
         this.decks = decks;
     }
 
-    public Card getCards() {
-        return cards;
+    public String getCardname() {
+        return cardname;
     }
 
-    public void setCards(Card cards) {
-        this.cards = cards;
+    public void setCardname(String cardname) {
+        this.cardname = cardname;
     }
 }

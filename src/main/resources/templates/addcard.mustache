@@ -1,0 +1,27 @@
+<html>
+<body>
+<div>
+    <form action="/addCard" method="post">
+        <input type="text" name="cardname" placeholder="Название карты" />
+        <input type="text" name="description" placeholder="Описание карты">
+        <span>Тип карты</span>
+            <select name="cardtype">
+                <option value="ISTANT">ISTANT</option>
+                <option value="SORCERY">SORCERY</option>
+                <option value="CREATURE">CREATURE</option>
+                <option value="PLANESWALKER">PLANESWALKER</option>
+                <option value="ENCHANTMENT">ENCHANTMENT</option>
+                <option value="ARTIFACT">ARTIFACT</option>
+                <option value="TRIBAL">TRIBAL</option>
+            </select>
+        <span>Земля?</span>
+            <select name="island">
+                <option value="1">Да</option>
+                <option value="0">Нет</option>
+            </select>
+        <input type="text" name="manacost" placeholder="Манакост">
+        <button type="submit">Добавить</button>
+    </form>
+</div>
+</body>
+</html>

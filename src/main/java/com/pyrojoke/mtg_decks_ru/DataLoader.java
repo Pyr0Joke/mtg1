@@ -7,9 +7,8 @@ import com.pyrojoke.mtg_decks_ru.services.DeckService;
 import com.pyrojoke.mtg_decks_ru.services.PersonService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+
 import java.util.Collections;
-import java.util.HashSet;
-import java.util.Set;
 
 @Component
 public class DataLoader implements CommandLineRunner {
@@ -55,6 +54,7 @@ public class DataLoader implements CommandLineRunner {
         card.setLand(false);
         card.setVoids(7);
         card.setId(1L);
+        card.setLoyality(7);
         cardService.save(card);
         Card card2 = new Card();
         card2.setCardname("Udzhin");
@@ -69,19 +69,19 @@ public class DataLoader implements CommandLineRunner {
         deckCards.setId(1L);
         deckCards.setCount(4);
         deckCards.setDecks(deck);
-        deckCards.setCards(card);
+        deckCards.setCardname(card.getCardname());
         deckCards.setMain(true);
         DeckCards deckCards2 = new DeckCards();
         deckCards2.setId(2L);
         deckCards2.setCount(2);
         deckCards2.setDecks(deck);
-        deckCards2.setCards(card2);
+        deckCards2.setCardname(card2.getCardname());
         deckCards2.setMain(true);
         DeckCards deckCards3 = new DeckCards();
         deckCards3.setId(3L);
         deckCards3.setCount(2);
         deckCards3.setDecks(deck2);
-        deckCards3.setCards(card2);
+        deckCards3.setCardname(card2.getCardname());
         deckCards3.setMain(true);
         deckCardsService.save(deckCards);
         deckCardsService.save(deckCards2);
