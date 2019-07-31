@@ -1,0 +1,12 @@
+<html>
+<body>
+<div>Список карт</div>
+    {{#cards}}
+        <tr>
+            <li>
+                <a href="/findCard?cardname={{cardname}}">{{cardname}}</a>
+            </li>
+        </tr>
+    {{/cards}}
+</body>
+</html>
