@@ -1,0 +1,22 @@
+<html>
+<body>
+<div>Свойства карты</div>
+<table>
+    <tr>
+        <td>Название карты</td>
+        <td>Тип карты</td>
+        <td>Описание</td>
+        <td>Манакост</td>
+    </tr>
+    {{#card}}
+        <tr>
+            <td>{{cardname}}</td>
+            <td>{{cardTypes}}</td>
+            <td>{{description}}</td>
+            <td>{{manacost}}</td>
+        </tr>
+    {{/card}}
+</table>
+<a href="/cards">Назад</a>
+</body>
+</html>

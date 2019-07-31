@@ -1,0 +1,17 @@
+<html>
+<body>
+<div>Просмотр колоды</div>
+{{deck}}
+<table>
+    <tr>
+        <td>Состав колоды</td>
+    </tr>
+    {{#cards}}
+        <tr>
+            <td>{{cardname}}</td>
+        </tr>
+    {{/cards}}
+</table>
+<a href="/decks">Назад</a>
+</body>
+</html>

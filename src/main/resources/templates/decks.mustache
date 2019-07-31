@@ -1,0 +1,12 @@
+<html>
+<body>
+<div>Список колод</div>
+    {{#decks}}
+        <tr>
+            <li>
+                <a href="/findDeck?deckname={{deckname}}">{{deckname}}</a>
+            </li>
+        </tr>
+    {{/decks}}
+</body>
+</html>
