@@ -1,6 +1,8 @@
 package com.pyrojoke.mtg_decks_ru.model;
 
 import javax.persistence.*;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Set;
 
 @Entity
@@ -69,7 +71,33 @@ public class Card {
     }
 
     public void setManacost(String manacost) {
-        this.manacost = manacost;
+//        this.manacost = manacost;
+        Map<String, Integer> mana = new HashMap<>();
+        char [] chars = manacost.toCharArray();
+        StringBuilder temp = new StringBuilder();
+        for (int i =0; i<chars.length; i++){
+            if(!Character.isAlphabetic(chars[i])){
+                temp.append(chars[i]);
+            }
+            else{
+                mana.put(String.valueOf(chars[i]), Integer.parseInt(temp.toString()));
+                temp = new StringBuilder();
+            }
+        }
+        if(mana.get("D")!=null)
+            this.setDiamond(mana.get("D"));
+        if(mana.get("V")!=null)
+            this.setVoids(mana.get("V"));
+        if(mana.get("R")!=null)
+            this.setMountain(mana.get("R"));
+        if(mana.get("U")!=null)
+            this.setIsland(mana.get("U"));
+        if(mana.get("W")!=null)
+            this.setPlains(mana.get("W"));
+        if(mana.get("B")!=null)
+            this.setSwamp(mana.get("B"));
+        if(mana.get("G")!=null)
+            this.setForest(mana.get("G"));
     }
 
     public int getStrength() {
@@ -100,8 +128,11 @@ public class Card {
         return land;
     }
 
-    public void setLand(boolean land) {
-        this.land = land;
+    public void setLand(String land) {
+        if (land.equals("1"))
+            this.land = true;
+        else
+            this.land=false;
     }
 
     public int getSwamp() {

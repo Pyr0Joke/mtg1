@@ -1,0 +1,40 @@
+<html>
+<body>
+    <div>
+        <form action="/findCard" method="get">
+            <input type="text" name="cardname" placeholder="Название карты" />
+            <button type="submit">Искать</button>
+        </form>
+        <form action="/addCardToDeck" method="post">
+        {{#card}}
+            <a href="/findCards?cardname={{cardname}}">{{cardname}}</a>
+            <input type="text" name="cardname" hidden="hidden" value="{{cardname}}">
+        {{/card}}
+            <span>Добавить в колоду</span>
+            <select name="deckname">
+                {{#decks}}
+                    <option value="{{deckname}}" name="deckname">{{deckname}}</option>
+                {{/decks}}
+            </select>
+            <span>Количество</span>
+            <select name="count">
+                    <option value="1" name="count">1</option>
+                    <option value="2" name="count">2</option>
+                    <option value="3" name="count">3</option>
+                    <option value="4" name="count">4</option>
+            </select>
+            <span>Добавить в мэйн?</span>
+            <select name="ismain">
+                <option value="1" name="ismain">Да</option>
+                <option value="0" name="ismain">Нет</option>
+            </select>
+            <button type="submit">Добавить карту в колоду</button>
+            <div>
+                {{#error}}
+                    {{error}}
+                {{/error}}
+            </div>
+        </form>
+    </div>
+</body>
+</html>

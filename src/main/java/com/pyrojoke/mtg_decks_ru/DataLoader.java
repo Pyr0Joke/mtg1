@@ -51,7 +51,7 @@ public class DataLoader implements CommandLineRunner {
         card.setCardname("Karn");
         card.setDescription("Eto karn");
         card.setCardTypes(Collections.singleton(CardType.PLANESWALKER));
-        card.setLand(false);
+        card.setLand("0");
         card.setVoids(7);
         card.setId(1L);
         card.setLoyality(7);
@@ -60,10 +60,22 @@ public class DataLoader implements CommandLineRunner {
         card2.setCardname("Udzhin");
         card2.setDescription("Eto Udzhin");
         card2.setCardTypes(Collections.singleton(CardType.PLANESWALKER));
-        card2.setLand(false);
+        card2.setLand("0");
         card2.setVoids(8);
         card2.setId(2L);
         cardService.save(card2);
+
+        Card card3 = new Card();
+        card3.setCardname("Тармогойф");
+        card3.setDescription("Зеленый сука");
+        card3.setCardTypes(Collections.singleton(CardType.CREATURE));
+        card3.setLand("0");
+        card3.setForest(1);
+        card3.setVoids(1);
+        card3.setId(3L);
+        card3.setStrength(0);
+        card3.setHealth(1);
+        cardService.save(card3);
 
         DeckCards deckCards = new DeckCards();
         deckCards.setId(1L);

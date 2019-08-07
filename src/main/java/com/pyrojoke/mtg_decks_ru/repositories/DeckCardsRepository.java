@@ -17,4 +17,5 @@ public interface DeckCardsRepository extends CrudRepository<DeckCards, Long> {
 
     @Query(value = "select card_id from deckcards where deck_id=:deckid", nativeQuery = true)
     Set<Long> findCards(@Param("deckid") long deckid);
+
 }
