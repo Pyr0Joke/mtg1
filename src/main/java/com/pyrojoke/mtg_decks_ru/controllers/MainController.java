@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
@@ -81,32 +80,6 @@ public class MainController {
         card.setDescription(description);
         card.setCardTypes(Collections.singleton(CardType.valueOf(cardtype)));
         card.setLand(island);
-//        Map<String, Integer> mana = new HashMap<>();
-//        char [] chars = manacost.toCharArray();
-//        StringBuilder temp = new StringBuilder();
-//        for (int i =0; i<chars.length; i++){
-//            if(!Character.isAlphabetic(chars[i])){
-//                temp.append(chars[i]);
-//            }
-//            else{
-//                mana.put(String.valueOf(chars[i]), Integer.parseInt(temp.toString()));
-//                temp = new StringBuilder();
-//            }
-//        }
-//        if(mana.get("D")!=null)
-//            card.setDiamond(mana.get("D"));
-//        if(mana.get("V")!=null)
-//            card.setVoids(mana.get("V"));
-//        if(mana.get("R")!=null)
-//            card.setMountain(mana.get("R"));
-//        if(mana.get("U")!=null)
-//            card.setIsland(mana.get("U"));
-//        if(mana.get("W")!=null)
-//            card.setPlains(mana.get("W"));
-//        if(mana.get("B")!=null)
-//            card.setSwamp(mana.get("B"));
-//        if(mana.get("G")!=null)
-//            card.setForest(mana.get("G"));
         card.setManacost(manacost);
         card.setLoyality(Integer.parseInt(loyality));
         card.setStrength(Integer.parseInt(strength));
@@ -182,6 +155,11 @@ public class MainController {
         Iterable<Deck> decks = deckService.findAll();
         model.put("decks", decks);
         return "findcardsform";
+    }
+
+    @RequestMapping("/index")
+    public String goOnMainPage(){
+        return "index";
     }
 }
 
